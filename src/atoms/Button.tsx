@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { color } from "styles/theme";
 
 interface Props {
+  disabled?: boolean;
   aaa?: string;
   bbb?: string;
   ccc?: string;
@@ -26,7 +27,8 @@ export default styled.button.attrs(() => ({}))<Props>`
         return `none`;
     }
   }};
-  box-shadow: 0 1px 4px ${color.primary.dark};
+
+  box-shadow: ${p => (p.disabled ? ``: `0 1px 4px ${color.primary.dark}`)};
 
   color: ${color.font.main};
 
@@ -47,8 +49,13 @@ export default styled.button.attrs(() => ({}))<Props>`
   }
 
   &:hover::before {
+    ${p =>
+      p.disabled
+        ? ``
+        : `
     filter: brightness(75%);
     transition: all 0.3s;
+    `}
   }
 
   &:active::before {
