@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 // import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
-import { Hide } from "styles/theme";
+
+import Button from "atoms/Button";
 
 export default function fun() {
   console.log("init");
@@ -10,10 +11,20 @@ export default function fun() {
 
   return (
     <Wrapper>
-      <h1>Script</h1>
-      <Hide size="tmax">
-        <h1> hmm.. </h1>
-      </Hide>
+      <h1>Test...</h1>
+      <Ddiv>
+        <span>
+          <h2> sss</h2>
+        </span>
+        <span>ddd</span>
+        xxx
+        <Button>
+          <span>HELLLLLLO</span>
+        </Button>
+        <div>
+          <h2> xxx</h2>
+        </div>
+      </Ddiv>
     </Wrapper>
   );
 }
@@ -21,6 +32,8 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const Tester = styled.div.attrs(p => ({ type: "password" }))`
-  text-align: left;
+const Ddiv = styled.div`
+  width: 80%;
+  margin: 30px auto;
+  background-color: ${p => p.theme.color.lime[1]};
 `;

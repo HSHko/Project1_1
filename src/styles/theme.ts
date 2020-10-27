@@ -1,8 +1,24 @@
-import { color } from "./colorPhalette";
-import styled from "styled-components";
+import { color as colors } from "./colorPhalette";
 import { createMuiTheme } from "@material-ui/core";
 
 /* eslint-disable */
+
+export const color = {
+  ...colors,
+  primary: {
+    main: colors.indigo[7],
+    light: colors.indigo[4],
+    dark: colors.indigo[10],
+  },
+  error: {
+    main: colors.red[0],
+    light: colors.red[3],
+    dark: colors.red[14],
+  },
+  font: {
+    main: colors.white,
+  },
+};
 
 export const vars = {
   backdrop: {
@@ -20,64 +36,9 @@ export const vars = {
   },
 };
 
-const deviceSize = {
-  mobile: {
-    min: "1px",
-    max: "768px",
-  },
-  tablet: {
-    min: "769px",
-    max: "1024px",
-  },
-  laptop: {
-    min: "1025px",
-    max: "1440px",
-  },
-};
-
-const media = {
-  mobile: {
-    min: `@media(min-width: ${deviceSize.mobile.min})`,
-    max: `@media(max-width: ${deviceSize.mobile.max})`,
-  },
-  tablet: {
-    min: `@media(min-width: ${deviceSize.tablet.min})`,
-    max: `@media(max-width: ${deviceSize.tablet.max})`,
-  },
-  laptop: {
-    min: `@media(min-width: ${deviceSize.laptop.min})`,
-    max: `@media(max-width: ${deviceSize.laptop.max})`,
-  },
-};
-
-interface HideProps {
-  size: string;
-}
-export const Hide = styled.div.attrs((p: HideProps) => ({
-  x: p.size,
-}))<HideProps>`
-  ${p => {
-    if (p.size == "mmin") {
-      return `${media.mobile.min} {display:none;}`;
-    } else if ((p.size = "mmax")) {
-      return `${media.mobile.max} {display:none;}`;
-    } else if ((p.size = "tmin")) {
-      return `${media.tablet.min} {display:none;}`;
-    } else if ((p.size = "tmax")) {
-      return `${media.tablet.max} {display:none;}`;
-    } else if ((p.size = "lmin")) {
-      return `${media.laptop.min} {display:none;}`;
-    } else if ((p.size = "lmax")) {
-      return `${media.laptop.max} {display:none;}`;
-    }
-  }}
-`;
-
 export const StyledTheme = {
   color,
   vars,
-  deviceSize,
-  media,
 };
 
 export const MaterialTheme = createMuiTheme({

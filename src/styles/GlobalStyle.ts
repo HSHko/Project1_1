@@ -28,7 +28,6 @@ const globalStyle = createGlobalStyle`
   a, button {
     display: flex;
     margin: auto 0.5rem;
-    padding: 0.25rem 0.5rem;
     outline: none;
     background-color: transparent;
     border: none;
